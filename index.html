@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legend Trading | Official Hub</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #07090e;
+            --card-bg: rgba(18, 24, 38, 0.8);
+            --neon-green: #00ff88;
+            --neon-cyan: #00e5ff;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #f3f4f6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 20px 16px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 229, 255, 0.08) 0%, transparent 40%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        /* Banner & Hero Header */
+        .hero-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 24px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 255, 136, 0.15);
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--neon-green);
+        }
+
+        .hero-content {
+            padding: 24px 20px;
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 255, 136, 0.12);
+            border: 1px solid rgba(0, 255, 136, 0.4);
+            color: var(--neon-green);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 30%, var(--neon-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+        }
+
+        .hero-desc {
+            color: #9ca3af;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .hero-desc strong {
+            color: #ffffff;
+        }
+
+        .hero-tagline {
+            color: var(--neon-cyan);
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Headings */
+        .section-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .section-label i {
+            color: var(--neon-green);
+        }
+
+        /* Links List */
+        .link-group {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .link-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px) scale(1.01);
+            border-color: var(--neon-green);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.18);
+            background: rgba(26, 35, 54, 0.85);
+        }
+
+        .link-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .icon-box {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .link-title {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .action-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Platform Custom Styling */
+        .qx .icon-box { color: #00ff88; background: rgba(0, 255, 136, 0.1); }
+        .qx .action-tag { background: rgba(0, 255, 136, 0.15); color: #00ff88; }
+
+        .delta .icon-box { color: #00e5ff; background: rgba(0, 229, 255, 0.1); }
+        .delta .action-tag { background: rgba(0, 229, 255, 0.15); color: #00e5ff; }
+
+        .ec .icon-box { color: #ffb703; background: rgba(255, 183, 3, 0.1); }
+        .ec .action-tag { background: rgba(255, 183, 3, 0.15); color: #ffb703; }
+
+        .xm .icon-box { color: #ff4d4d; background: rgba(255, 77, 77, 0.1); }
+        .xm .action-tag { background: rgba(255, 77, 77, 0.15); color: #ff4d4d; }
+
+        .telegram .icon-box { color: #229ED9; background: rgba(34, 158, 217, 0.1); }
+        .telegram .action-tag { background: rgba(34, 158, 217, 0.2); color: #229ED9; }
+
+        .youtube .icon-box { color: #FF0000; background: rgba(255, 0, 0, 0.1); }
+        .youtube .action-tag { background: rgba(255, 0, 0, 0.2); color: #FF0000; }
+
+        .instagram .icon-box { color: #E1306C; background: rgba(225, 48, 108, 0.1); }
+        .instagram .action-tag { background: rgba(225, 48, 108, 0.2); color: #E1306C; }
+
+        .facebook .icon-box { color: #1877F2; background: rgba(24, 119, 242, 0.1); }
+        .facebook .action-tag { background: rgba(24, 119, 242, 0.2); color: #1877F2; }
+
+        /* Bonus Code Box */
+        .code-card {
+            background: linear-gradient(135deg, rgba(255, 183, 3, 0.08), rgba(0, 0, 0, 0.3));
+            border: 1px dashed rgba(255, 183, 3, 0.4);
+            border-radius: 14px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: -6px;
+        }
+
+        .code-text {
+            font-size: 0.85rem;
+            color: #d1d5db;
+        }
+
+        .code-btn {
+            background: #ffb703;
+            color: #000;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .code-btn:active { transform: scale(0.95); }
+
+        footer {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            margin-top: 10px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Banner & Header Card -->
+        <div class="hero-card">
+            <!-- Legend Trading Banner Image -->
+            <img src="logo.jpg" alt="Legend Trading" class="banner-img">
+            
+            <div class="hero-content">
+                <div class="brand-badge"><i class="fa-solid fa-bolt"></i> LEGEND TRADER 821</div>
+                <h1 class="hero-title">Legend Trading</h1>
+                <p class="hero-desc">
+                    Hey Traders! <strong>Legend Trading</strong> में आपका स्वागत है।<br>
+                    ट्रेडिंग लॉस से परेशान हैं? यहाँ हम बिल्कुल बेसिक से एडवांस लेवल तक <strong>Chart Patterns, Market Analysis</strong> और <strong>Mindset Control</strong> सीखेंगे।
+                </p>
+                <div class="hero-tagline">सीखो, समझो और कमाओ! 🚀</div>
+            </div>
+        </div>
+
+        <!-- Trading Brokers -->
+        <div class="section-label"><i class="fa-solid fa-chart-line"></i> Top Trading Platforms</div>
+        <div class="link-group">
+
+            <!-- Quotex -->
+            <a href="https://broker-qx.pro/sign-up/?lid=1642166" target="_blank" class="link-card qx">
+                <div class="link-info">
+                    <div class="icon-box"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <div class="link-title">Quotex Binary Trading</div>
+                </div>
+                <div class="action-tag">Register <i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Delta Exchange -->
+            <a href="https://www.delta.exchange/?code=DeltalinkofABHAY" target="_blank" class="link-card delta">
+                <div class="link-info">
+                    <div class="icon-box"><i class="fa-solid fa-coins"></i></div>
+                    <div class="link-title">Delta Exchange (Crypto)</div>
+                </div>
+                <div class="action-tag">Join Free <i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- EC Markets -->
+            <a href="https://i.ecmarkets.com/api/client/pm/2/42G9K" target="_blank" class="link-card ec">
+                <div class="link-info">
+                    <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
+                    <div class="link-title">EC Markets (Forex)</div>
+                </div>
+                <div class="action-tag">Trade Forex <i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- XM Market -->
+            <a href="https://www.xmglobal.com/referral?token=VwhYObmCbiwzsA8h_HyDHw" target="_blank" class="link-card xm">
+                <div class="link-info">
+                    <div class="icon-box"><i class="fa-solid fa-fire"></i></div>
+                    <div class="link-title">XM Market (80% Bonus)</div>
+                </div>
+                <div class="action-tag">Claim Bonus <i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- XM Code Box -->
+            <div class="code-card">
+                <div class="code-text">🎁 XM 80% Bonus Code: <strong style="color:#ffb703">RAF479RDD</strong></div>
+                <button class="code-btn" onclick="copyCode('RAF479RDD', this)">COPY</button>
+            </div>
+
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="section-label"><i class="fa-solid fa-share-nodes"></i> Connect With Us</div>
+        <div class="link-group">
+
+            <a href="https://t.me/+XD2vUw0YwCQ5ZmI1" target="_blank" class="link-card telegram">
+                <div class="link-info">
+                    <div class="icon-box"><i class="fa-brands fa-telegram"></i></div>
+                    <div class="link-title">Telegram Channel</div>
+                </div>
+                <div class="action-tag">Join VIP <i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://youtube.com/@legend_trading_8211?si=4uUweNWcBRQyNAj2" target="_blank" class="link-card youtube">
+                <div class="link-info">
+                    <div class="icon-box"><i class="fa-brands fa-youtube"></i></div>
+                    <div class="link-title">YouTube Channel</div>
+                </div>
+                <div class="action-tag">Subscribe <i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://www.instagram.com/legend_trader_8211?stkn=MTAwcno4OG5qdm04aw==" target="_blank" class="link-card instagram">
+                <div class="link-info">
+                    <div class="icon-box"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="link-title">Instagram Profile</div>
+                </div>
+                <div class="action-tag">Follow <i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://www.facebook.com/share/1JsuE3d6Xq/" target="_blank" class="link-card facebook">
+                <div class="link-info">
+                    <div class="icon-box"><i class="fa-brands fa-facebook"></i></div>
+                    <div class="link-title">Facebook Page</div>
+                </div>
+                <div class="action-tag">Like <i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+        </div>
+
+        <footer>
+            <p><strong>Risk Warning:</strong> Trading involves significant risk of capital loss. Trade responsibly.</p>
+            <p>© 2026 Legend Trading. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function copyCode(code, btn) {
+            navigator.clipboard.writeText(code);
+            btn.innerText = "COPIED!";
+            btn.style.background = "#00ff88";
+            setTimeout(() => {
+                btn.innerText = "COPY";
+                btn.style.background = "#ffb703";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
